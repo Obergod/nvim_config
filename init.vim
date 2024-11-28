@@ -9,7 +9,6 @@ set ruler
 set number
 set showmatch
 syntax on
-set noswapfile
 set mouse=a
 set shiftwidth=4
 set tabstop=4
