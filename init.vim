@@ -45,6 +45,17 @@ inoremap º <Esc>:m .-2<CR>==gi
 vnoremap ª :m '>+1<CR>gv=gv
 vnoremap º :m '<-2<CR>gv=gv
 
+""""""""""""""""""""""""""""""""""""""""""""""
+"				My remaps
+""""""""""""""""""""""""""""""""""""""""""""""
+
+tnoremap <C-q> <C-\><C-n>
+nnoremap <C-t> <C-w>j<C-w>j
+tnoremap <C-t> <C-\><C-n><C-w>j<C-\><C-n><C-w>j
+"nnoremap <C-m> <C-w>k
+"tnoremap <C-m> <C-\><C-n><C-w>k
+nnoremap bt :bot term<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""
 "              		 VIMPLUG
 """""""""""""""""""""""""""""""""""""""""""""
@@ -69,9 +80,15 @@ call plug#begin()
 	Plug 'scrooloose/syntastic'
 	Plug 'ntpeters/vim-airline-colornum'
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 	Plug 'rebelot/kanagawa.nvim'
 	Plug 'folke/which-key.nvim'
+	Plug 'stevearc/dressing.nvim'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'MunifTanjim/nui.nvim'
+	Plug 'nvim-tree/nvim-web-devicons'
+	Plug 'HakonHarnes/img-clip.nvim'
+	Plug 'zbirenbaum/copilot.lua'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -120,3 +137,4 @@ set cursorline
 """""""""""""""""""""""""""""""""""""""""""""
  let g:SuperTabMappingForward = '<S-tab>'
  let g:SuperTabMappingBackward = '<C-tab>'
+
