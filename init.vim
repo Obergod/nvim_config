@@ -32,18 +32,7 @@ nnoremap <leader>f :Telescope find_files<cr>
 nnoremap <leader>t :Telescope<cr>
 nnoremap <leader>o gT
 nnoremap <leader>p gt
-nnoremap <leader>m I#include <libc.h><cr><cr>int main(int ac, char **av)<cr>{<cr>}<esc>ko
-nnoremap <leader>d :windo difft<cr>
-nnoremap <leader>do :diffo<cr>
 
-nnoremap ª :m .+1<CR>==
-nnoremap º :m .-2<CR>==
-
-inoremap ª <Esc>:m .+1<CR>==gi
-inoremap º <Esc>:m .-2<CR>==gi
-
-vnoremap ª :m '>+1<CR>gv=gv
-vnoremap º :m '<-2<CR>gv=gv
 
 """"""""""""""""""""""""""""""""""""""""""""""
 "				My remaps
@@ -137,4 +126,3 @@ set cursorline
 """""""""""""""""""""""""""""""""""""""""""""
  let g:SuperTabMappingForward = '<S-tab>'
  let g:SuperTabMappingBackward = '<C-tab>'
-
