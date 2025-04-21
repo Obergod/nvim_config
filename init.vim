@@ -45,6 +45,17 @@ tnoremap <C-t> <C-\><C-n><C-w>j<C-\><C-n><C-w>j
 "tnoremap <C-m> <C-\><C-n><C-w>k
 nnoremap bt :bot term<CR>
 
+" Navigate splits with Ctrl + Arrow keys
+nnoremap <silent> <C-Left>  <C-w>h
+nnoremap <silent> <C-Down>  <C-w>j
+nnoremap <silent> <C-Up>    <C-w>k
+nnoremap <silent> <C-Right> <C-w>l
+
+" Resize splits with Shift + Arrow
+nnoremap <silent> <C-S-Left>  :vertical resize -5<CR>
+nnoremap <silent> <C-s-Down>  :resize +5<CR>
+nnoremap <silent> <C-s-Up>    :resize -5<CR>
+nnoremap <silent> <C-s-Right> :vertical resize +5<CR>
 """""""""""""""""""""""""""""""""""""""""""""
 "              		 VIMPLUG
 """""""""""""""""""""""""""""""""""""""""""""
