@@ -56,6 +56,14 @@ nnoremap <silent> <C-S-Left>  :vertical resize -5<CR>
 nnoremap <silent> <C-s-Down>  :resize +5<CR>
 nnoremap <silent> <C-s-Up>    :resize -5<CR>
 nnoremap <silent> <C-s-Right> :vertical resize +5<CR>
+
+inoremap { {}<Esc>ha
+inoremap ( ()<Esc>ha
+inoremap [ []<Esc>ha
+inoremap " ""<Esc>ha
+inoremap ' ''<Esc>ha
+inoremap ` ``<Esc>ha
+
 """""""""""""""""""""""""""""""""""""""""""""
 "              		 VIMPLUG
 """""""""""""""""""""""""""""""""""""""""""""
