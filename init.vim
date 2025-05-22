@@ -44,6 +44,7 @@ tnoremap <C-t> <C-\><C-n><C-w>j<C-\><C-n><C-w>j
 "nnoremap <C-m> <C-w>k
 "tnoremap <C-m> <C-\><C-n><C-w>k
 nnoremap bt :bot term<CR>
+nnoremap <leader>g <cmd>Telescope grep_string<cr>
 
 " Navigate splits with Ctrl + Arrow keys
 nnoremap <silent> <C-Left>  <C-w>h
@@ -57,12 +58,14 @@ nnoremap <silent> <C-s-Down>  :resize +5<CR>
 nnoremap <silent> <C-s-Up>    :resize -5<CR>
 nnoremap <silent> <C-s-Right> :vertical resize +5<CR>
 
+" Auto close
 inoremap { {}<Esc>ha
 inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
 inoremap " ""<Esc>ha
 inoremap ' ''<Esc>ha
 inoremap ` ``<Esc>ha
+
 
 """""""""""""""""""""""""""""""""""""""""""""
 "              		 VIMPLUG
@@ -145,3 +148,4 @@ set cursorline
 """""""""""""""""""""""""""""""""""""""""""""
  let g:SuperTabMappingForward = '<S-tab>'
  let g:SuperTabMappingBackward = '<C-tab>'
+
