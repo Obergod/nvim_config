@@ -9,7 +9,6 @@ set ruler
 set number
 set showmatch
 syntax on
-set noswapfile
 set mouse=a
 set shiftwidth=4
 set tabstop=4
@@ -33,18 +32,40 @@ nnoremap <leader>f :Telescope find_files<cr>
 nnoremap <leader>t :Telescope<cr>
 nnoremap <leader>o gT
 nnoremap <leader>p gt
-nnoremap <leader>m I#include <libc.h><cr><cr>int main(int ac, char **av)<cr>{<cr>}<esc>ko
-nnoremap <leader>d :windo difft<cr>
-nnoremap <leader>do :diffo<cr>
 
-nnoremap ª :m .+1<CR>==
-nnoremap º :m .-2<CR>==
 
-inoremap ª <Esc>:m .+1<CR>==gi
-inoremap º <Esc>:m .-2<CR>==gi
+""""""""""""""""""""""""""""""""""""""""""""""
+"				My remaps
+""""""""""""""""""""""""""""""""""""""""""""""
 
-vnoremap ª :m '>+1<CR>gv=gv
-vnoremap º :m '<-2<CR>gv=gv
+tnoremap <C-q> <C-\><C-n>
+nnoremap <C-t> <C-w>j<C-w>j
+tnoremap <C-t> <C-\><C-n><C-w>j<C-\><C-n><C-w>j
+"nnoremap <C-m> <C-w>k
+"tnoremap <C-m> <C-\><C-n><C-w>k
+nnoremap bt :bot term<CR>
+nnoremap <leader>g <cmd>Telescope grep_string<cr>
+
+" Navigate splits with Ctrl + Arrow keys
+nnoremap <silent> <C-Left>  <C-w>h
+nnoremap <silent> <C-Down>  <C-w>j
+nnoremap <silent> <C-Up>    <C-w>k
+nnoremap <silent> <C-Right> <C-w>l
+
+" Resize splits with Shift + Arrow
+nnoremap <silent> <C-S-Left>  :vertical resize -5<CR>
+nnoremap <silent> <C-s-Down>  :resize +5<CR>
+nnoremap <silent> <C-s-Up>    :resize -5<CR>
+nnoremap <silent> <C-s-Right> :vertical resize +5<CR>
+
+" Auto close
+inoremap { {}<Esc>ha
+inoremap ( ()<Esc>ha
+inoremap [ []<Esc>ha
+inoremap " ""<Esc>ha
+inoremap ' ''<Esc>ha
+inoremap ` ``<Esc>ha
+
 
 """""""""""""""""""""""""""""""""""""""""""""
 "              		 VIMPLUG
@@ -70,9 +91,16 @@ call plug#begin()
 	Plug 'scrooloose/syntastic'
 	Plug 'ntpeters/vim-airline-colornum'
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 	Plug 'rebelot/kanagawa.nvim'
 	Plug 'folke/which-key.nvim'
+	Plug 'stevearc/dressing.nvim'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'MunifTanjim/nui.nvim'
+	Plug 'nvim-tree/nvim-web-devicons'
+	Plug 'HakonHarnes/img-clip.nvim'
+	Plug 'kdheepak/lazygit.nvim'
+	Plug 'bfrg/vim-cpp-modern'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -88,18 +116,6 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " Refresh NERDTREE whith <cr>r
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""
-"			KANAGAWA
-"""""""""""""""""""""""""""""""""""""""""""""
-colorscheme kanagawa
-
-"""""""""""""""""""""""""""""""""""""""""""""
-"              		  COLOR CODEeD
-"""""""""""""""""""""""""""""""""""""""""""""
-let g:color_coded_enabled = 1
-let g:color_coded_filetypes = ['c', 'cpp', 'objc']
 
 """""""""""""""""""""""""""""""""""""""""""""
 "              		  SYNTASTIC
@@ -121,3 +137,30 @@ set cursorline
 """""""""""""""""""""""""""""""""""""""""""""
  let g:SuperTabMappingForward = '<S-tab>'
  let g:SuperTabMappingBackward = '<C-tab>'
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"              		  CPP_COLORS
+"""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
+
+" Highlight struct/class member variables
+let g:cpp_member_highlight = 1
+
+" Link C++ types to the original Vim syntax group
+" This will make int, char, etc. use the original colors
+augroup CppTypeHighlight
+  autocmd!
+  autocmd ColorScheme * highlight link cppType Type
+  autocmd ColorScheme * highlight link cppSTLtype Type
+augroup END
+
+" Apply the colorscheme again to refresh highlights
+autocmd VimEnter * colorscheme kanagawa
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"			KANAGAWA
+"""""""""""""""""""""""""""""""""""""""""""""
+colorscheme kanagawa
+
