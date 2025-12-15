@@ -23,6 +23,10 @@ command! WQ :wq
 command! Wq :wq
 set scrolloff=3
 
+let g:user42 = 'mafioron'
+let g:mail42 = 'mafioron@student.42.fr'
+
+
 let mapleader=" "
 
 nnoremap <leader>T :FloatermNew --height=0.6 --width=0.4 --wintype=float --name=floaterm<cr>
@@ -91,7 +95,7 @@ call plug#begin()
 	Plug 'scrooloose/syntastic'
 	Plug 'ntpeters/vim-airline-colornum'
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'rebelot/kanagawa.nvim'
 	Plug 'folke/which-key.nvim'
 	Plug 'stevearc/dressing.nvim'
@@ -101,6 +105,7 @@ call plug#begin()
 	Plug 'HakonHarnes/img-clip.nvim'
 	Plug 'kdheepak/lazygit.nvim'
 	Plug 'bfrg/vim-cpp-modern'
+	Plug '42Paris/42header'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -144,6 +149,7 @@ set cursorline
 
 " Enable highlighting of C++11 attributes
 let g:cpp_attributes_highlight = 1
+autocmd BufNewFile,BufRead *.tpp set filetype=cpp
 
 " Highlight struct/class member variables
 let g:cpp_member_highlight = 1
@@ -163,4 +169,3 @@ autocmd VimEnter * colorscheme kanagawa
 "			KANAGAWA
 """""""""""""""""""""""""""""""""""""""""""""
 colorscheme kanagawa
-
