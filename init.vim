@@ -51,6 +51,7 @@ tnoremap <C-t> <C-\><C-n><C-w>j<C-\><C-n><C-w>j
 "tnoremap <C-m> <C-\><C-n><C-w>k
 nnoremap bt :bot term<CR>
 nnoremap <leader>g <cmd>Telescope grep_string<cr>
+nnoremap <leader>G <cmd>Telescope live_grep<cr>
 
 " Navigate splits with Ctrl + Arrow keys
 nnoremap <silent> <C-Left>  <C-w>h
